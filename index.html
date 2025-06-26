@@ -56,6 +56,34 @@
 </head>
 <body>
 
+  <!-- Vídeo de fundo -->
   <video id="bg-video" autoplay muted loop playsinline>
     <source src="fundo.mp4" type="video/mp4" />
-    Seu navegador não suporta vídeo HTM
+    Seu navegador não suporta vídeo HTML5.
+  </video>
+
+  <h1>Te amo, Leila... mil milhões! 💖</h1>
+
+  <!-- Botão de ativar som -->
+  <button id="play-button">▶️ Ativar música</button>
+
+  <!-- Áudio -->
+  <audio id="audio" src="die_with_a_smile.mp3.mp3" loop></audio>
+
+  <script>
+    const audio = document.getElementById('audio');
+    const btn = document.getElementById('play-button');
+
+    btn.onclick = () => {
+      audio.play()
+        .then(() => {
+          btn.style.display = 'none';
+        })
+        .catch(err => {
+          alert('Clique novamente para ativar o som.');
+        });
+    };
+  </script>
+
+</body>
+</html>
