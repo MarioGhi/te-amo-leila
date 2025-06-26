@@ -5,19 +5,12 @@
   <title>Te Amo Leila</title>
   <style>
     html, body {
-      margin: 0; padding: 0; height: 100%;
-      background: black;
-      overflow: hidden;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: url('fundo.jpg') no-repeat center center fixed;
+      background-size: cover;
       font-family: Arial, sans-serif;
-    }
-
-    #bg-video {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-      z-index: -1;
     }
 
     h1 {
@@ -56,18 +49,9 @@
 </head>
 <body>
 
-  <!-- Vídeo de fundo -->
-  <video id="bg-video" autoplay muted loop playsinline>
-    <source src="fundo.mp4" type="video/mp4" />
-    Seu navegador não suporta vídeo HTML5.
-  </video>
-
   <h1>Te amo, Leila... mil milhões! 💖</h1>
-
-  <!-- Botão de ativar som -->
   <button id="play-button">▶️ Ativar música</button>
 
-  <!-- Áudio -->
   <audio id="audio" src="die_with_a_smile.mp3.mp3" loop></audio>
 
   <script>
