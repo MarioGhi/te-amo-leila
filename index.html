@@ -4,24 +4,16 @@
   <meta charset="UTF-8" />
   <title>Te Amo Leila</title>
   <style>
-    html, body {
-      margin: 0; padding: 0; height: 100%;
+    body {
+      margin: 0;
       overflow: hidden;
       font-family: Arial, sans-serif;
-    }
-
-    /* vídeo como fundo */
-    #bg-video {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw;
       height: 100vh;
-      object-fit: cover;
-      z-index: -1;
+      background: #000;
     }
 
     h1 {
-      color: white;
+      color: #fff;
       font-size: 48px;
       animation: pulse 2s infinite;
       text-align: center;
@@ -29,13 +21,23 @@
       top: 30%;
       width: 100%;
       z-index: 2;
-      text-shadow: 2px 2px 8px #000;
     }
 
     @keyframes pulse {
       0% { transform: scale(1); }
       50% { transform: scale(1.1); }
       100% { transform: scale(1); }
+    }
+
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+      pointer-events: none;
     }
 
     #play-button {
@@ -92,16 +94,15 @@
 </head>
 <body>
 
-  <video id="bg-video" autoplay muted loop>
-    <source src="fundo.mp4.mp4" type="video/mp4" />
+  <video id="bg-video" autoplay muted loop playsinline>
+    <source src="fundo.mp4" type="video/mp4" />
     Seu navegador não suporta vídeo HTML5.
   </video>
 
   <h1>Te amo, Leila... mil milhões! 💖</h1>
   <button id="play-button">▶️ Ativar música</button>
 
-  <!-- Áudio local oculto -->
-  <audio id="audio" src="die_with_a_smile.mp3.mp3" loop></audio>
+  <audio id="audio" src="die_with_a_smile.mp3" loop></audio>
 
   <script>
     const audio = document.getElementById('audio');
