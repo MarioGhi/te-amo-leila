@@ -8,9 +8,9 @@
       margin: 0; padding: 0; height: 100%;
       overflow: hidden;
       font-family: Arial, sans-serif;
+      background: black;
     }
 
-    /* vídeo como fundo */
     #bg-video {
       position: fixed;
       top: 0; left: 0;
@@ -28,7 +28,7 @@
       position: absolute;
       top: 30%;
       width: 100%;
-      z-index: 2;
+      z-index: 1;
       text-shadow: 2px 2px 8px #000;
     }
 
@@ -50,43 +50,7 @@
       font-size: 18px;
       border-radius: 10px;
       cursor: pointer;
-      z-index: 3;
-    }
-
-    .heart {
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background: red;
-      transform: rotate(45deg);
-      animation: float 5s infinite ease-in;
-      opacity: 0.7;
-      z-index: 1;
-    }
-
-    .heart::before,
-    .heart::after {
-      content: '';
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background: red;
-      border-radius: 50%;
-    }
-
-    .heart::before {
-      top: -10px;
-      left: 0;
-    }
-
-    .heart::after {
-      left: -10px;
-      top: 0;
-    }
-
-    @keyframes float {
-      0% { transform: translateY(0) rotate(45deg); opacity: 0.7; }
-      100% { transform: translateY(-100vh) rotate(45deg); opacity: 0; }
+      z-index: 2;
     }
   </style>
 </head>
@@ -108,18 +72,11 @@
     const btn = document.getElementById('play-button');
 
     btn.onclick = () => {
-      audio.play();
+      audio.play().catch(e => {
+        alert("Erro ao tentar tocar o áudio. Clique novamente.");
+      });
       btn.style.display = 'none';
     };
-
-    // Corações flutuantes
-    for (let i = 0; i < 30; i++) {
-      const heart = document.createElement('div');
-      heart.className = 'heart';
-      heart.style.left = Math.random() * 100 + 'vw';
-      heart.style.animationDuration = (3 + Math.random() * 2) + 's';
-      document.body.appendChild(heart);
-    }
   </script>
 
 </body>
